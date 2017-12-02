@@ -1,17 +1,15 @@
-﻿
-using Indspire.Soaring.Engagement.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Indspire.Soaring.Engagement.ViewModels
+﻿namespace Indspire.Soaring.Engagement.ViewModels
 {
+    using Indspire.Soaring.Engagement.Database;
+
     public class AwardScanViewModel
     {
-        public string AwardNumber { get; set; }
-        public bool HasAwardNumber { get; set; }
-        public bool AwardNumberInvalid { get; set; }
+        public string AwardNumber { get; set; } = string.Empty;
+
+        public bool HasAwardNumber { get; set; } = false;
+
+        public bool AwardNumberInvalid { get; set; } = false;
+
         public Award Award { get; set; }
     }
 }

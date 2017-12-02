@@ -29,10 +29,10 @@
         </tr>
         <tr>
             <td>
-                @Html.DisplayNameFor(model => model.EventNumber)
+                @Html.DisplayNameFor(model => model.AwardNumber)
             </td>
             <td>
-                @Html.DisplayFor(model => model.EventNumber)
+                @Html.DisplayFor(model => model.AwardNumber)
             </td>
         </tr>
         <tr>
@@ -64,7 +64,7 @@
                 Scan Link
             </td>
             <td>
-                <a href="/award/scan?AwardNumber=@Model.EventNumber">Scan a QR Code (Award Points)</a>
+                <a asp-action="Scan" asp-route-id="@Model.EventNumber">Scan a QR Code (Award Points)</a>
             </td>
         </tr>
     </table>

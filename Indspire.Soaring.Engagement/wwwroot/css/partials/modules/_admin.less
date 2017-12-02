@@ -32,16 +32,23 @@
     font-size: 1.5rem;
 }
 
+.admin-backend-top__right  {
+    margin-left: auto;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+}
+
 .admin-backend__top-logout {
     display: flex;
     align-items: center;
-    margin-left: auto;
+    margin-left: 1rem;
     text-decoration: none;
     color: @black;
     .font-bold;
     transition: all 0.2s ease-in-out;
 
-    &:hover , &:active {
+    &:hover, &:active {
         color: @theme-blue;
     }
 }
@@ -49,6 +56,19 @@
 .admin-backend__top-logout-icon {
     font-size: 1.4rem;
     margin-right: 0.5rem;
+}
+
+.admin-backend__top-event-select {
+    padding: 0.5rem 0.8rem;
+    border-radius: 3px;
+}
+
+.admin-backend__top-event-select-label  {
+    margin-right: 0.5rem;
+    .font-semibold;
+}
+
+.admin-backend__top-event-select-item {
 }
 
 // Admin Nav
@@ -167,7 +187,10 @@
 }
 
 .admin-backend__main-header-actions {
-    flex: 1 1 auto;
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
 }
 
 .admin-backend__main-header-actions-link {
@@ -180,6 +203,11 @@
     .font-semibold;
     border-radius: 3px;
     transition: all 0.2s ease-in-out;
+    margin-right: 0.5rem;
+
+    &:last-child {
+        margin-right: 0;
+    }
 
     &:hover {
         background: @theme-blue;

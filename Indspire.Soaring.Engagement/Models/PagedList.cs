@@ -14,6 +14,8 @@ namespace Indspire.Soaring.Engagement.Models
 
         public int PageSize { get; set; }
 
+        public string Search { get; set; }
+
         public IEnumerable<TList> List { get; set; }
 
         public PagedList(IEnumerable<TList> list)
@@ -30,6 +32,7 @@ namespace Indspire.Soaring.Engagement.Models
             this.TotalCount = 0;
             this.Page = 1;
             this.PageSize = 10;
+            this.Search = null;
         }
 
         public IEnumerator<TList> GetEnumerator()

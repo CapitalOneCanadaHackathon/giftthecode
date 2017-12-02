@@ -1,9 +1,10 @@
-﻿@model Indspire.Soaring.Engagement.Database.Redemption
+﻿@model EditRedemptionViewModel
 
-@{
+@if (Model != null)
+{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-}
+
 
 <div class="admin-backend__main-header">
     <div class="admin-backend__main-header-title">
@@ -43,8 +44,10 @@
         </div>
     </form>
 </div>
+}
 
 
-@section Scripts {
+@section Scripts
+{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

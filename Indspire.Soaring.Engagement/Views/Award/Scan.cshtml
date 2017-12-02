@@ -1,45 +1,51 @@
 ﻿@model Indspire.Soaring.Engagement.ViewModels.AwardScanViewModel
 
-<div class="scanner">
+@if (Model != null)
+{
+    var award = Model.Award;
 
-    <div class="admin-backend__top">
-        <img class="admin-backend__top-logo" src="~/images/Indspire-logo.jpg" alt="Indspire" />
-        <span class="admin-backend__top-text">Award @Model.Award.Points Points for @Model.Award.Name</span>
+    <div class="scanner">
 
-        @*<a href="" class="admin-backend__top-logout">
-            <span class="admin-backend__top-logout-icon fa fa-sign-out"></span>
-            Logout
-        </a>*@
-    </div>
-
-    <div class="scanner-content">
-
-        <div class="scanner-content__wrapper">
-            @if (Model.AwardNumberInvalid && Model.HasAwardNumber)
-            {
-                <p>The code you entered is not valid. Please try again.</p>
-
-            }
-
-
-            @if (Model.AwardNumberInvalid || !Model.HasAwardNumber)
-            {
-                <form method="get" action="/award/scan">
-                    <p>This page is intended for Vendors at the conference to issue points to attendees by scanning their QR code.</p>
-                    <label for="AwardNumber">Enter your Code</label>
-                    <input type="text" name="AwardNumber" />
-                    <button type="submit" class="blue-button">Submit Code</button>
-                </form>
-            }
+        <div class="admin-backend__top">
+            <img class="admin-backend__top-logo" src="~/images/Indspire-logo.jpg" alt="Indspire" />
 
             @if (Model.Award != null)
             {
-                <h5 class="desktop-hide">Award @Model.Award.Points Points for @Model.Award.Name</h5>
-                <h6>Scan a QR code below</h6>
-                <qr-scanner params="{ type: 'Award', awardNumber: '@Model.AwardNumber' }"></qr-scanner>
+                <span class="admin-backend__top-text">Award @award.Points Points for @award.Name</span>
             }
         </div>
 
-    </div>
+        <div class="scanner-content">
+            <div class="scanner-content__wrapper">
+                @if (Model.AwardNumberInvalid && Model.HasAwardNumber)
+                {
+                    <p>The code you entered is not valid. Please try again.</p>
+                }
 
-</div>
+                @if (Model.AwardNumberInvalid || !Model.HasAwardNumber)
+                {
+                    <form method="post" asp-controller="Award" asp-action="PostScan">
+                        <p>This page is intended for Vendors at the conference to
+                        issue points to attendees by scanning their QR code.</p>
+                        
+                        <label for="AwardNumber">Enter your Code</label>
+                        
+                        <input type="text" name="AwardNumber" />
+                        
+                        <button type="submit" class="blue-button">Submit Code</button>
+                    </form>
+                }
+                else
+                {
+                    if (award != null)
+                    {
+                        <h5 class="desktop-hide">Award @award.Points Points for @award.Name</h5>
+                    }
+
+                    <h6>Scan a QR code below</h6>
+                    <qr-scanner params="{ type: 'Award', awardNumber: '@Model.AwardNumber' }"></qr-scanner>
+                }
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,8 @@
+﻿@using Indspire.Soaring.Engagement.Extensions
+@model Indspire.Soaring.Engagement.Database.User
+
+<span>@Model.UserNumber</span>
+@if (!string.IsNullOrEmpty(Model.UserNumber))
+{
+    <img class="admin-qr-code" src="data:image/png;base64,@Model.GetQRCodeAsBase64()" />
+}

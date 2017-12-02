@@ -1,9 +1,4 @@
-﻿
-using Indspire.Soaring.Engagement.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Indspire.Soaring.Engagement.Database;
 
 namespace Indspire.Soaring.Engagement.ViewModels
 {

@@ -1,18 +1,16 @@
-﻿using Indspire.Soaring.Engagement.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Indspire.Soaring.Engagement.Extensions
+﻿namespace Indspire.Soaring.Engagement.Extensions
 {
+    using System.Collections.Generic;
+    using Indspire.Soaring.Engagement.Models;
+
     public static class EnumerableExtensions
     {
         public static PagedList<TList> ToPagedList<TList>(
             this IEnumerable<TList> list,
             int totalCount,
             int page,
-            int pageSize)
+            int pageSize,
+            string search = null)
         {
             return new PagedList<TList>(list)
             {
@@ -20,7 +18,9 @@ namespace Indspire.Soaring.Engagement.Extensions
 
                 Page = page,
 
-                PageSize = pageSize                
+                PageSize = pageSize,
+                
+                Search = search
             };
         }
     }

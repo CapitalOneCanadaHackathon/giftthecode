@@ -1,0 +1,10 @@
+﻿@model Indspire.Soaring.Engagement.ViewModels.BulkCreateViewModel
+@{
+    ViewData["Title"] = "Users Created";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div>
+    <h1>@ViewData["Title"]</h1>
+    <p>@Model.AmountCreated/@Model.Amount users created successfully.</p>
+    <a asp-action="PrintBulkQRCodes">Proceed to Print QR Codes</a>
+</div>

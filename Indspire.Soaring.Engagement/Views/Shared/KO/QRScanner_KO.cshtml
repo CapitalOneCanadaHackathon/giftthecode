@@ -4,17 +4,25 @@
     <div class="full-screen-overlay">
 
         <div class="full-screen-overlay__content rich-text">
+
             <div class="full-screen-overlay__content-text">
                 <span class="font-semibold">User Number:</span> <span data-bind="text: data.awardConfirmation.userNumber"></span>
             </div>
+
             <div class="full-screen-overlay__content-text">
                 <span class="font-semibold">Points Awarded:</span> <span data-bind="text: data.awardConfirmation.pointsAwarded"></span>
             </div>
+
             <div class="full-screen-overlay__content-text">
                 <span class="font-semibold">Points Balance:</span> <span data-bind="text: data.awardConfirmation.pointsBalance"></span>
             </div>
+
             <button class="green-button" data-bind="click: methods.dismissConfirmation">Ok</button>
+
+            <set-user-externalid params="{ userNumber: data.awardConfirmation.userNumber, externalID: data.externalID }"></set-user-externalid>
+
         </div>
+
     </div>
     <!-- /ko -->
     <!-- ko if: state.redemptionConfirmation -->
@@ -43,6 +51,24 @@
             </div>
             <!-- /ko -->
             <button class="blue-button" data-bind="click: methods.dismissConfirmation">Ok</button>
+
+            <set-user-externalid params="{ userNumber: data.redemptionConfirmation.userNumber, externalID: data.externalID }"></set-user-externalid>
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: state.balanceConfirmation -->
+    <div class="full-screen-overlay">
+
+        <div class="full-screen-overlay__content rich-text">
+            <div class="full-screen-overlay__content-text">
+                <span class="font-semibold">User Number:</span> <span data-bind="text: data.balanceConfirmation.userNumber"></span>
+            </div>
+            <div class="full-screen-overlay__content-text">
+                <span class="font-semibold">Points Balance:</span> <span data-bind="text: data.balanceConfirmation.pointsBalance"></span>
+            </div>
+            <button class="green-button" data-bind="click: methods.dismissConfirmation">Ok</button>
+
+            <set-user-externalid params="{ userNumber: data.balanceConfirmation.userNumber, externalID: data.externalID }"></set-user-externalid>
         </div>
     </div>
     <!-- /ko -->

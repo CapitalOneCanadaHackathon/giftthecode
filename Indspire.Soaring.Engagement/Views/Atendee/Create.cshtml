@@ -1,0 +1,41 @@
+﻿@model CreateAtendeeViewModel
+
+@if (Model != null)
+{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    <div class="admin-backend__main-header">
+        <div class="admin-backend__main-header-title">
+            <a class="admin-backend__main-header-title-back fa fa-chevron-left" asp-action="Index"></a>
+            <span class="admin-backend__main-header-title-icon fa fa-user-plus"></span>
+            <span class="admin-backend__main-header-title-text">Create Atendee</span>
+        </div>
+
+        <div class="admin-backend__main-header-actions">
+
+        </div>
+    </div>
+
+    <div class="admin-backend__main-content">
+        <form asp-action="Create" class="admin-form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="input input__text">
+                <label asp-for="ExternalID" class="control-label">External ID</label>
+                <input asp-for="ExternalID" class="form-control" />
+                <span asp-validation-for="ExternalID" class="text-danger"></span>
+            </div>
+        
+
+            <div class="admin-create-user__form-submit">
+                <input type="submit" value="Create" class="blue-button admin-create-user__form-submit-button" />
+            </div>
+        </form>
+    </div>
+}
+
+@section Scripts
+{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

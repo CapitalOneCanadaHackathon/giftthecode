@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Create Bulk Users";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<form method="post" asp-action="BulkCreateConfirmation">
+    <h1>Create Bulk Users</h1>
+    <p>Enter a number below to automatically create unique users.</p>
+    <label>Users to Create</label>
+    <input type="number" name="amount" />
+    <button type="submit">Create Users</button>
+</form>

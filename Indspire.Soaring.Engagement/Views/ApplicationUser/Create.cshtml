@@ -1,0 +1,52 @@
+﻿@model ApplicationUser
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="admin-backend__main-header">
+    <div class="admin-backend__main-header-title">
+        <a class="admin-backend__main-header-title-back fa fa-chevron-left" asp-action="Index"></a>
+        <span class="admin-backend__main-header-title-icon fa fa-plus">
+
+        </span>
+        <span class="admin-backend__main-header-title-text">Create App User</span>
+    </div>
+
+    <div class="admin-backend__main-header-actions">
+
+    </div>
+</div>
+
+<div class="admin-backend__main-content">
+    <form asp-action="Create" class="admin-form">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="input input__text">
+            <label asp-for="UserName" class="control-label"></label>
+            <input asp-for="UserName" class="form-control" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <div class="input input__text">
+            <label asp-for="Email" class="control-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="input input__text">
+            <label class="control-label" for="password">Password</label>
+            <input class="form-control" id="password" name="Password" />
+        </div>
+        <div class="input input__text">
+            <label class="control-label" for="confirm-password">Confirm Password</label>
+            <input class="form-control" id="confirm-password" name="ConfirmPassword"/>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="blue-button" />
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

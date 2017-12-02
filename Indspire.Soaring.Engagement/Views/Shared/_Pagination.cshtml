@@ -13,7 +13,7 @@
                 {
                 <li class="pagination__list-item">
                     <a class="pagination__list-item-link prev"
-                       href="@String.Format("{0}{1}{3}={2}&{4}={5}", Model.BaseUrl, Model.QueryStringToken, Model.Page - 1, Model.QueryStringParam, Model.QueryStringPageSizeParam, Model.PageSize)">
+                       href="@String.Format("{0}{1}{3}={2}&{4}={5}&{6}={7}", Model.BaseUrl, Model.QueryStringToken, Model.Page - 1, Model.QueryStringParam, Model.QueryStringPageSizeParam, Model.PageSize, Model.QueryStringSearchParam, Model.Search)">
                         <span class="fa fa-chevron-left"></span>
                     </a>
                 </li>
@@ -28,7 +28,7 @@
                 else
                 {
                     <li class="pagination__list-item">
-                        <a href="@String.Format("{0}{1}{3}={2}&{4}={5}", Model.BaseUrl, Model.QueryStringToken, i, Model.QueryStringParam, Model.QueryStringPageSizeParam, Model.PageSize)">@i</a>
+                        <a href="@String.Format("{0}{1}{3}={2}&{4}={5}&{6}={7}", Model.BaseUrl, Model.QueryStringToken, i, Model.QueryStringParam, Model.QueryStringPageSizeParam, Model.PageSize, Model.QueryStringSearchParam, Model.Search)">@i</a>
                     </li>
                 }
             }
@@ -37,7 +37,7 @@
             {
                 <li class="pagination__list-item">
                     <a class="next"
-                       href="@String.Format("{0}{1}{3}={2}&{4}={5}", Model.BaseUrl, Model.QueryStringToken, Model.Page + 1, Model.QueryStringParam, Model.QueryStringPageSizeParam, Model.PageSize)">
+                       href="@String.Format("{0}{1}{3}={2}&{4}={5}&{6}={7}", Model.BaseUrl, Model.QueryStringToken, Model.Page + 1, Model.QueryStringParam, Model.QueryStringPageSizeParam, Model.PageSize, Model.QueryStringSearchParam, Model.Search)">
                         <span class="fa fa-chevron-right"></span>
                     </a>
                 </li>

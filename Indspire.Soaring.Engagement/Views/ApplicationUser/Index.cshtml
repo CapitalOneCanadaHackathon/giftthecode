@@ -4,6 +4,8 @@
 
 @if (Model != null)
 {
+    var list = Model as PagedList<ApplicationUser>;
+
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 
@@ -21,50 +23,50 @@
     </div>
 
     <div class="admin-backend__main-content admin-backend__users">
-        <table class="admin-backend__users-table table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.UserName)
-                    </th>
-                    <th class="table__actions">
-                        Actions
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.UserName)
-                        </td>
-                        <td class="table__icons-row">
-                            <div class="table__icons-row-wrapper">
-                                @*<a asp-action="Edit" asp-route-id="@item.Id" class="table__icons-row-icon">
-                                    <span class="fa fa-pencil"></span>
-                                </a>
-                                <a asp-action="Details" asp-route-id="@item.Id" class="table__icons-row-icon">
-                                    <span class="fa fa-info-circle"></span>
-                                </a>*@
-                                <a asp-action="Delete" asp-route-id="@item.Id" class="table__icons-row-icon">
-                                    <span class="fa fa-trash"></span>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
 
-        @{
-            var list = Model as PagedList<ApplicationUser>;
+        @if (Model != null && Model.Count() > 0)
+        {
+            <table class="admin-backend__users-table table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UserName)
+                        </th>
+                        <th class="table__actions">
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserName)
+                            </td>
+                            <td class="table__icons-row">
+                                <div class="table__icons-row-wrapper">
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="table__icons-row-icon">
+                                        <span class="fa fa-trash"></span>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div>
+                No users created yet.
+                <a asp-action="Create">Click here</a> to create a new user.
+            </div>
         }
 
-        @if (list != null)
+        @if (list != null && list.TotalCount > 0)
         {
             @await Html.PartialAsync("_Pagination", list.GetPagination())
         }
-
     </div>
 }

@@ -525,6 +525,12 @@ h1 {
 .full-screen-overlay__content-text {
   margin-bottom: 1rem;
 }
+.full-screen-overlay__content-external-form {
+  margin-top: 2rem;
+}
+.full-screen-overlay__content-external-message {
+  margin-top: 2rem;
+}
 /*
  * -- TABLET (AND UP) MEDIA QUERIES --
  */
@@ -564,10 +570,16 @@ h1 {
   font-weight: 700;
   font-size: 1.5rem;
 }
+.admin-backend-top__right {
+  margin-left: auto;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
 .admin-backend__top-logout {
   display: flex;
   align-items: center;
-  margin-left: auto;
+  margin-left: 1rem;
   text-decoration: none;
   color: #000;
   font-weight: 700;
@@ -580,6 +592,14 @@ h1 {
 .admin-backend__top-logout-icon {
   font-size: 1.4rem;
   margin-right: 0.5rem;
+}
+.admin-backend__top-event-select {
+  padding: 0.5rem 0.8rem;
+  border-radius: 3px;
+}
+.admin-backend__top-event-select-label {
+  margin-right: 0.5rem;
+  font-weight: 600;
 }
 .admin-backend__nav {
   background: #007DC5;
@@ -683,7 +703,10 @@ h1 {
   color: #007DC5;
 }
 .admin-backend__main-header-actions {
-  flex: 1 1 auto;
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 .admin-backend__main-header-actions-link {
   display: flex;
@@ -695,6 +718,10 @@ h1 {
   font-weight: 600;
   border-radius: 3px;
   transition: all 0.2s ease-in-out;
+  margin-right: 0.5rem;
+}
+.admin-backend__main-header-actions-link:last-child {
+  margin-right: 0;
 }
 .admin-backend__main-header-actions-link:hover {
   background: #007DC5;

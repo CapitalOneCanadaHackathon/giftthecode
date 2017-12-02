@@ -1,12 +1,7 @@
-﻿using Indspire.Soaring.Engagement.Models;
-using Indspire.Soaring.Engagement.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Indspire.Soaring.Engagement.Extensions
+﻿namespace Indspire.Soaring.Engagement.Extensions
 {
+    using Indspire.Soaring.Engagement.Models;
+
     public static class PageListExtensions
     {
         public static Pagination GetPagination<TList>(this PagedList<TList> pagedList)
